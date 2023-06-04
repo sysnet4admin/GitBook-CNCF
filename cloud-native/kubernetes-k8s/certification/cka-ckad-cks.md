@@ -120,7 +120,7 @@ During the exam, candidates may:
 
 
 
-![No Pass](<../../../.gitbook/assets/image (22).png>)
+![No Pass](<../../../.gitbook/assets/image (23).png>)
 
 {% embed url="https://docs.linuxfoundation.org/tc-docs/certification/lf-candidate-handbook/exam-scoring-and-notification/exam-results-no-pass" %}
 

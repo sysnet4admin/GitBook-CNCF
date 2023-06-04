@@ -47,6 +47,8 @@
     * [kube-bench](cloud-native/security/cluster/kube-bench.md)
   * [Container](cloud-native/security/container/README.md)
     * [trivy](cloud-native/security/container/trivy.md)
+* [Sustainability](cloud-native/sustainability/README.md)
+  * [클라우드 네이티브의 지속가능성 랜드스케이프(Cloud Native Sustainability Landscape, v0.1)](cloud-native/sustainability/cloud-native-sustainability-landscape.md)
 
 ## Trouble Shooting
 
@@ -64,10 +66,12 @@
     * [OpenTelemetry를 이용한 Kafka 기반의 비동기 워크플로우 테스트(2023.04.04)](blog-and-news-ko/blog/member/opentelemetry-kafka.md)
     * [링커드(Linkerd) 서비스 메시(Service Mesh) 소개(2023.04.06)](blog-and-news-ko/blog/member/linkerd.md)
     * [쿠버네티스 앱의 분산 추적에 관해서 지금 알면 좋은 사항(2023.03.29)](blog-and-news-ko/blog/member/tracing.md)
+    * [CI/CD 파이프라인에 관측 가능성(observability)을 확보하는 방법(2023.05.05)](blog-and-news-ko/blog/member/cicd-observability.md)
   * [Community](blog-and-news-ko/blog/community/README.md)
     * [클라우드 네이티브 컴퓨팅을 위한 플랫폼 백서(White Paper) 소개(2023.04.11)](blog-and-news-ko/blog/community/platform\_whitepaper\_intro.md)
   * [Project](blog-and-news-ko/blog/project/README.md)
     * [KubeVela: 클라우드 네이티브 애플리케이션 및 플랫폼 엔지니어링으로 가는 길(2023.03.31)](blog-and-news-ko/blog/project/kubevela-2023.03.31.md)
     * [Volcano Engine: Dragonfly를 통한 효과적인 이미지 배포 가속 방법(2023.04.13)](blog-and-news-ko/blog/project/dragonfly2.md)
     * [Weave GitOps를 Flux UI로 구현하는 법(2023.04.24)](blog-and-news-ko/blog/project/gitops-flux-ui.md)
+    * [이스티오(Istio) 앰비언트(Ambient) 웨이포인트 프록시를 통한 사용 간편화(2023.04.26)](blog-and-news-ko/blog/project/istio-waypoint.md)
 * [News](blog-and-news-ko/news.md)

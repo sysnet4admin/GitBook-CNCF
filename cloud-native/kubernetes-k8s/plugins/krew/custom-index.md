@@ -152,7 +152,7 @@ i.e. manifest files should locate in **plugins** folder from main.&#x20;
 
 plugins folder have actual manifests. so upload your `manifest` in **plugins** folder&#x20;
 
-![](<../../../../.gitbook/assets/image (8).png>)
+![](<../../../../.gitbook/assets/image (9).png>)
 
 it is same methodology from default ([krew-index](https://github.com/kubernetes-sigs/krew-index)) &#x20;
 

@@ -147,11 +147,11 @@ px-operator   vizier-operator-d67b785dc-lb94h                                   
 
 ### 2.1. NKS Cluster
 
-![](<../../../.gitbook/assets/image (21).png>)
+![](<../../../.gitbook/assets/image (22).png>)
 
 ### 2.2. bk8s Cluster&#x20;
 
-![](<../../../.gitbook/assets/image (7).png>)
+![](<../../../.gitbook/assets/image (8).png>)
 
 
 

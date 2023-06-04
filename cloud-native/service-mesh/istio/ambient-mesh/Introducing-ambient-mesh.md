@@ -20,7 +20,11 @@ description: https://istio.io/latest/blog/2022/introducing-ambient-mesh/
 
 이스티오의 아키택처는 처음부터 애플리케이션 컨테이너가 배포되어지면, 그에 따라 프로그래밍 가능한 프록시인 _사이드카_ (Side car)를 함께 배포되도록 설계되었습니다.  사이드카를 사용하면 실제 애플리케이션에는 아무런 영향을 주지 않고, 이스티오에서 제공하는 다양한 이점을 얻을 수 있습니다.&#x20;
 
+<div align="center">
+
 <figure><img src="../../../../.gitbook/assets/image (6).png" alt=""><figcaption><p>전통적인 이스티오 모델은 엔보이(Envoy) 프록시를 사이드카 형태로 파드 내부에 추가 배포함</p></figcaption></figure>
+
+</div>
 
 사이드카는 애플리케이션을 다시 설계(Refactoring, 리팩토링)하는 것보다 상당한 이점들이 있지만, 애플리케이션과 이스티오 데이터 플레인을 완벽하게 분리하는 기능을 제공하지는 못합니다. 이러한 이유로 사이드카를 사용하는 구성은 다음과 같은 제한 사항들이 발생합니다.&#x20;
 
