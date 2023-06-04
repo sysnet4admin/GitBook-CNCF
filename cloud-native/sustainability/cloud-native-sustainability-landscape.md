@@ -22,7 +22,7 @@ description: https://tag-env-sustainability.cncf.io/about/landscape/
 Huamin Chen, [Marlow Weston](https://github.com/catblade), [Niki Manoledaki](https://github.com/nikimanoledaki), Eun Kyung Lee, [Chen Wang](https://github.com/wangchen615), [Chris Lloyd-Jones](https://github.com/Sealjay), [Parul Singh](https://github.com/husky-parul), [Przemysław Perycz](https://github.com/pperycz), [Christopher Cantalupo](https://github.com/cmcantalupo), [Patricia Cahill](https://github.com/patricia-cahill), [Jochen Joswig](https://github.com/by-d-sign), [Emily Fox](https://github.com/thefoxatwork), [Leonard Pahlke](https://github.com/leonardpahlke)\
 
 
-## 지속 가능한 클라우드 시스템의 기초&#x20;
+## 지속 가능한 클라우드 시스템의 기초  <a href="#foundations-of-sustainable-cloud-systems" id="foundations-of-sustainable-cloud-systems"></a>
 
 지속 가능한 클라우드 및 클라우드 네이티브 시스템은 세 가지 기반이 존재할 때만 구축할 수 있습니다. 이러한 기반은 클라우드 및 클라우드 네이티브 아키텍처에서 정보에 입각한 설계, 의사 결정, 책임의 기초를 형성합니다.
 
@@ -45,13 +45,13 @@ Huamin Chen, [Marlow Weston](https://github.com/catblade), [Niki Manoledaki](htt
 
 
 
-## 지속 가능한 클라우드 시스템 구축의 과제&#x20;
+## 지속 가능한 클라우드 시스템 구축의 과제  <a href="#challenges-of-sustainable-cloud-systems" id="challenges-of-sustainable-cloud-systems"></a>
 
 그린 컴퓨팅과 탄소 및 에너지 회계는 다양한 산업 분야에서 관심을 갖고 빠르게 발전하는 분야로, 지속 가능한 클라우드 시스템의 구축 및 유지 관리와 관련된 과제는 여전히 밝혀지고 있습니다. 이러한 기술의 도입과 성숙도가 높아짐에 따라 더 많은 과제와 해결책이 발견될 것으로 예상됩니다. 그러나 아래 섹션에서는 두 기반 전반에 걸쳐 현재 직면한 과제를 파악하려고 합니다. 탄소 회계에 널리 사용되는 표준은 [온실가스 프로토콜(](https://ghgprotocol.org/)약칭: 온실가스 프로토콜, GHGP)입니다.
 
 
 
-## 탄소/에너지 회계의 어려움
+## 탄소/에너지 회계의 어려움 <a href="#challenges-of-carbonenergy-accounting" id="challenges-of-carbonenergy-accounting"></a>
 
 ### 운영 탄소 배출량 정량화
 
@@ -71,10 +71,6 @@ Huamin Chen, [Marlow Weston](https://github.com/catblade), [Niki Manoledaki](htt
 제조 세부 정보('내재된 배출량')가 제조 기술 소비자의 전체적 정량화를 위한 정보에 통합되지 않기 때문에 내재된 탄소 배출량을 정량화하는 것도 매우 어렵습니다. 이는 이 백서의 범위를 벗어나는 것이지만, 관심 있는 독자는 이 [TAG 저장소](https://github.com/cncf/tag-env-sustainability)에 이슈 또는 PR을 제출하여 이러한 배출량을 정량화하기 위한 지침, 모범 사례, 방법, 메커니즘을 제안해 주시기 바랍니다.
 
 <figure><img src="https://learn.greensoftware.foundation/assets/images/06_energy_proportionality_updated-a6941b6c0d261511e74dc2217062373c.png" alt=""><figcaption><p><a href="https://learn.greensoftware.foundation/energy-efficiency/#energy-proportionality">에너지 비례성(Energy Proportionality)</a></p></figcaption></figure>
-
-
-
-
 
 ### 클라우드&#x20;
 
@@ -112,7 +108,7 @@ AWS, Azure, GCP와 같은 퍼블릭 클라우드 제공업체는 사용자가 �
 
 
 
-## 솔루션 계층&#x20;
+## 솔루션 계층  <a href="#layers-of-the-solutions" id="layers-of-the-solutions"></a>
 
 지속 가능한 클라우드 시스템의 세 가지 토대를 보완하는 솔루션을 고려할 때 고려해야 할 사항을 세 가지 일반적인 영역으로 나눌 수 있습니다:
 
@@ -126,7 +122,7 @@ AWS, Azure, GCP와 같은 퍼블릭 클라우드 제공업체는 사용자가 �
 
 
 
-## 현재 업계 연구 및 개발&#x20;
+## 현재 업계 연구 및 개발  <a href="#current-industry-research-and-development" id="current-industry-research-and-development"></a>
 
 지속 가능한 컴퓨팅 분야에는 수많은 개발과 연구가 진행 중입니다. 여기에 소개되지 않은 것을 알고 계신다면 기고해 주시면 감사하겠습니다!
 
@@ -150,7 +146,7 @@ AWS, Azure, GCP와 같은 퍼블릭 클라우드 제공업체는 사용자가 �
 
 
 
-## 현재 지속 가능한 클라우드 컴퓨팅 환경&#x20;
+## 현재 지속 가능한 클라우드 컴퓨팅 환경  <a href="#current-sustainable-cloud-computing-landscape" id="current-sustainable-cloud-computing-landscape"></a>
 
 아래 다이어그램은 지속 가능한 클라우드 컴퓨팅 환경의 차원을 보여주며, 다음 섹션에서 자세히 설명합니다.
 
@@ -336,7 +332,7 @@ flowchart TB
 
 
 
-## 지속 가능성 관련 활동&#x20;
+## 지속 가능성 관련 활동  <a href="#sustainability-initiatives" id="sustainability-initiatives"></a>
 
 여러 가지 지속 가능성 활동이 진행 중이며, 누락된 항목이 있다면 PR을 제출하여 이 목록이 업데이트 될 수 있도록 도와주세요.
 
