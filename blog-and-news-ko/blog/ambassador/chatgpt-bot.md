@@ -41,4 +41,86 @@ _26,000명의 개발자가 70만 개 이상의 PR을 검토한 Linear b의 설�
 
 관리자/메인테이너로서 [코드 리뷰 봇이 작성한 기술 요약](https://github.com/WasmEdge/WasmEdge/pull/2394#issuecomment-1497819842)도 매우 유용했습니다.
 
-<figure><img src="https://www.cncf.io/wp-content/uploads/2023/06/image8.jpg" alt=""><figcaption><p>풀 리퀘스트에서 코드 변경 사항 요ㄱ</p></figcaption></figure>
+<figure><img src="https://www.cncf.io/wp-content/uploads/2023/06/image8.jpg" alt=""><figcaption><p>풀 리퀘스트로 인한 코드 변경 사항 요약</p></figcaption></figure>
+
+
+
+## 어떻게 작동할까요?
+
+코드 리뷰어 봇은 서버리스 함수(즉, flow function)로 Rust(그리고 곧 JavaScript!)로 작성되며, Wasm으로 컴파일되고 [flows.network](https://flows.network/)에서 호스팅하는 WasmEdge 런타임에서 실행됩니다.
+
+Flows.network는 WasmEdge 함수를 실행하고 외부 API(예: GitHub)에 연결하기 위한 UI와 호스팅된 서비스를 제공하는 PaaS입니다. 충분한 무료 티어가 있습니다. 물론 원하는 경우 자체 WasmEdge 클라우드 서비스를 실행할 수도 있습니다.
+
+연결된 GitHub 저장소에 PR이 생성되면 flow function(또는 🤖)이 트리거됩니다. 플로우 함수는 PR의 패치와 파일을 수집하여 ChatGPT/4에 검토 및 요약하도록 요청합니다. 그런 다음 그 결과를 다시 PR에 댓글로 게시합니다.
+
+봇은 PR에 새로운 커밋과 업데이트가 있는지 지속적으로 모니터링합니다. 필요에 따라 PR의 코드 리뷰 코멘트를 업데이트(덮어쓰기)합니다.
+
+봇은 PR의 댓글 섹션에 있는 마법 문구로 트리거될 수도 있습니다. 예를 들어, 리뷰어가 봇이 요약을 업데이트하도록 하려면 " flow summarize"라고 댓글을 달면 됩니다.
+
+
+
+## 나만의 봇 만들기
+
+나만의 코드 검토 봇을 만들고 배포하려면 다음의 간단한 3단계를 따르세요. 5분도 채 걸리지 않습니다!
+
+두 가지 봇 템플릿 중에서 선택할 수 있습니다. [하나](https://github.com/flows-network/github-pr-summary)는 PR의 각 커밋을 요약하는 것입니다(이를 통해 봇 생성). [다른 하나](https://github.com/flows-network/github-pr-review)는 PR에서 변경된 각 파일을 검토하는 것입니다(이 파일로 봇 만들기). 다음은 전자의 단계를 보여줍니다.
+
+<figure><img src="https://www.cncf.io/wp-content/uploads/2023/06/image6.jpg" alt=""><figcaption><p>템플릿으로 봇 만들기</p></figcaption></figure>
+
+* [**flows.network에서 코드 검토 봇 템플릿을 로드합니다.**](https://flows.network/flow/createByTemplate/Summarize-Pull-Request) **(로그인 필요)** 템플릿에는 봇 자체의 소스 코드가 포함되어 있습니다. 나중에 수정하고 사용자 지정할 수 있도록 소스 코드를 사용자 고유의 GitHub 계정에 복제합니다. 만들기 및 배포를 클릭합니다.&#x20;
+* **봇에 OpenAI API 키를 제공합니다.** 과거에 API 키를 저장한 적이 있다면 이 단계를 건너뛰고 해당 키를 재사용할 수 있습니다.&#x20;
+* **봇의 GitHub 액세스를 승인합니다.** github\_owner 및 github\_repo는 봇이 PR을 검토할 대상 GitHub 저장소를 가리킵니다. 권한 부여를 클릭하여 봇에 GitHub에서 필요한 권한을 부여합니다.&#x20;
+
+아래 그림은 위의 2단계와 3단계를 보여줍니다.
+
+<figure><img src="https://www.cncf.io/wp-content/uploads/2023/06/image3.jpg" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="https://www.cncf.io/wp-content/uploads/2023/06/image10.jpg" alt=""><figcaption></figcaption></figure>
+
+봇이 GitHub에서 제공하는 OAuth UI를 사용하여 WasmEdge/wasmedge-db-examples GitHub 저장소에 액세스할 수 있도록 권한을 부여합니다.
+
+그게 다입니다. github\_owner/github\_repo 저장소에 새 풀 리퀘스트를 생성하고 봇이 마법처럼 작동하는 것을 확인하세요!
+
+
+
+## 맞춤형 봇 설정하기
+
+위의 프로세스에서는 먼저 [템플릿에서 봇 소스 코드](https://github.com/flows-network/github-pr-summary)를 자신의 GitHub 계정(예: your\_id/summarize-github-pull-requests 저장소)에 복제했습니다. 그런 다음 이 소스 코드에서 봇을 만듭니다. 자신의 계정에서 봇 소스 코드를 변경하여 봇 동작을 사용자 지정하거나 수정합니다.
+
+봇 소스 코드에 대한 변경 사항을 GitHub에 푸시해야 flows.network가 해당 변경 사항을 반영하여 봇(즉, 플로우 함수)을 다시 빌드할 수 있습니다.
+
+다음은 봇을 사용자 정의하기 위해 수행할 수 있는 몇 가지 간단한 코드 변경 사항입니다. 복제된 저장소의 src/github-pr-summary.rs 소스 코드 파일을 다음과 같이 변경하면 됩니다. flows.network가 변경 사항을 반영할 수 있도록 변경 사항을 GitHub에 푸시하는 것을 잊지 마세요.
+
+1. 다른 모델을 선택하세요. 봇은 기본적으로 GPT 3.5 모델을 사용합니다. 상위 모델인 GPT4에 액세스할 수 있는 경우 다음 소스 코드에서 "GPT35Turbo"를 "GPT4"로 변경하세요. GPT4는 더 나은 코드 검토 기능을 제공하지만 비용이 더 비쌉니다.
+
+```
+static MODEL : ChatModel = ChatModel::GPT35Turbo;
+// static MODEL : ChatModel = ChatModel::GPT4;
+```
+
+2. 엔지니어 ChatGPT 프롬프트. 예를 들어 ChatGPT가 숙련된 Java 개발자가 되어 Java 소스 코드 파일을 검토하도록 할 수 있습니다. 사용자 지정 프롬프트를 사용하여 봇이 코드의 특정 측면에 집중하도록 할 수 있습니다(예: 보안 문제 또는 성능에 집중). 제안된 변경 사항에 대한 코드 스니펫을 제공하거나 보안 문제에 대한 글머리 기호를 제공하는 등 특정 유형의 검토 의견을 제공하도록 봇에 메시지를 표시할 수도 있습니다. 다음 코드는 템플릿의 프롬프트입니다. 여기에서 힌트를 얻을 수 있는 많은 프롬프트 라이브러리가 있습니다.
+
+```
+let chat_id = format!("PR#{pull_number}");
+    let system = &format!("You are an experienced software developer. You will act as a reviewer for a GitHub Pull Request titled \"{}\".", title);
+    let mut reviews: Vec<String> = Vec::new();
+    let mut reviews_text = String::new();
+    for (_i, commit) in commits.iter().enumerate() {
+        let commit_hash = &commit[5..45];
+        let co = ChatOptions {
+            model: MODEL,
+            restart: true,
+            system_prompt: Some(system),
+            retry_times: 3,
+        };
+        let question = "The following is a GitHub patch. Please summarize the key changes and identify potential problems. Start with the most important findings.\n\n".to_string() + truncate(commit, CHAR_SOFT_LIMIT);
+```
+
+
+
+
+
+
+
+
+
