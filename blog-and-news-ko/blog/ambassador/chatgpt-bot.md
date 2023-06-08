@@ -29,5 +29,16 @@ _26,000명의 개발자가 70만 개 이상의 PR을 검토한 Linear b의 설�
 
 하지만 ChatGPT/4가 코드 리뷰를 수행할 만큼 똑똑할까요? 이것은 시니어 개발자가 해야 할 일 아닌가요? 더 이상 고민하지 않고 예시를 살펴보겠습니다. 아래 그림은 WasmEdge 오픈 소스 리포지토리 중 하나에 제출된 PR을 보여줍니다. 입력된 숫자가 소수인지 확인하기 위해 check\_prime() 함수를 추가합니다. 구현은 꽤 표준적으로 보입니다. 2에서 n의 제곱근까지 반복하고 모든 정수에 대해 분할 가능성을 확인합니다.
 
-<figure><img src="https://www.cncf.io/wp-content/uploads/2023/06/image1.jpg" alt=""><figcaption><p>n이 소수인지 확인하는 이 코드에서 문제를 발견하셨나요? ChatGPT가 찾아냈습니다! (아래..._)</p></figcaption></figure>
+<figure><img src="https://www.cncf.io/wp-content/uploads/2023/06/image1.jpg" alt=""><figcaption><p>n이 소수인지 확인하는 이 코드에서 문제를 발견하셨나요? ChatGPT가 찾아냈습니다! (아래에 있음)</p></figcaption></figure>
 
+봇은 [다음과 같은 코드 리뷰 코멘트](https://github.com/second-state/wasmedge-quickjs/pull/82#issuecomment-1498299630)를 제공합니다. 정말 대단하다고 말하지 않을 수 없습니다!
+
+
+
+<figure><img src="https://www.cncf.io/wp-content/uploads/2023/06/image2.jpg" alt=""><figcaption><p>ChatGPT의 코드 리뷰</p></figcaption></figure>
+
+대화를 계속 진행하면 [ChatGPT/4를 통해 코드를 더욱 최적화](https://github.com/second-state/chat-with-chatgpt/issues/250)하여 반복문에서 이미 발견된 소수의 배수를 모두 건너뛰는 솔루션을 찾을 수 있게 도와주는 것을 확인할 수 있습니다.
+
+관리자/메인테이너로서 [코드 리뷰 봇이 작성한 기술 요약](https://github.com/WasmEdge/WasmEdge/pull/2394#issuecomment-1497819842)도 매우 유용했습니다.
+
+<figure><img src="https://www.cncf.io/wp-content/uploads/2023/06/image8.jpg" alt=""><figcaption><p>풀 리퀘스트에서 코드 변경 사항 요ㄱ</p></figcaption></figure>
