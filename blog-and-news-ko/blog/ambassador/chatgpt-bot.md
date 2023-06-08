@@ -3,13 +3,24 @@ description: >-
   https://www.cncf.io/blog/2023/06/06/a-chatgpt-powered-code-reviewer-bot-for-open-source-projects/
 ---
 
-# 오픈소스 프로젝트를 위한 ChatGPT 기반 코드 리뷰어 봇(Bot)
+# 오픈소스 프로젝트를 위한 ChatGPT 기반 코드 리뷰어 봇(Bot) (2023.06.06)
+
+> **한줄 요약:** WasmEdge 코드 리뷰 봇을 사용해서 생산적인 코드 리뷰하는 방법 제시&#x20;
+>
+> **관련 프로젝트:** [https://github.com/WasmEdge/WasmEdge](https://github.com/WasmEdge/WasmEdge)&#x20;
+>
+> **WasmEdge runtime 페이지:** [https://wasmedge.org/](https://wasmedge.org/) \
+> **flows.network 페이지:** [https://flows.network/](https://flows.network/)
+
+{% hint style="info" %}
+이 문서는 기계 번역 후에 일부 내용만 다듬었으므로, 보다 정확한 이해를 위해서는 원문을 보는 것이 좋습니다.
+{% endhint %}
 
 
 
+2023년 6월 6일 ([Link](https://www.cncf.io/blog/2023/06/06/a-chatgpt-powered-code-reviewer-bot-for-open-source-projects/))
 
-
-2023년 6월 6일 Miley Fu, CNCF 홍보대사, CNCF WasmEdge 프로젝트 개발자
+Miley Fu, CNCF 홍보대사, CNCF WasmEdge 프로젝트 개발자
 
 코드 리뷰는 최신 소프트웨어 개발에서 매우 중요한 부분입니다. GitHub 워크플로에서 코드 리뷰는 풀 리퀘스트(PR)가 생성될 때 시작되며, PR이 승인되고 병합 또는 거부되면 종료됩니다. 검토자는 일반적으로 선임 개발자 또는 아키텍트입니다. 이들은 리포지토리에 제출된 코드가 정확하고, 유지 관리가 가능하며, 확장 가능하고, 안전한지 확인하는 데 도움을 줍니다. 이는 커뮤니티로부터 많은 코드 기여를 받을 수 있는 오픈 소스 프로젝트에서 특히 중요합니다.
 
@@ -83,7 +94,7 @@ Flows.network는 WasmEdge 함수를 실행하고 외부 API(예: GitHub)에 연�
 
 
 
-## 맞춤형 봇 설정하기
+## 사용자 정의 형태의 봇 설정하기
 
 위의 프로세스에서는 먼저 [템플릿에서 봇 소스 코드](https://github.com/flows-network/github-pr-summary)를 자신의 GitHub 계정(예: your\_id/summarize-github-pull-requests 저장소)에 복제했습니다. 그런 다음 이 소스 코드에서 봇을 만듭니다. 자신의 계정에서 봇 소스 코드를 변경하여 봇 동작을 사용자 지정하거나 수정합니다.
 
@@ -93,14 +104,15 @@ Flows.network는 WasmEdge 함수를 실행하고 외부 API(예: GitHub)에 연�
 
 1. 다른 모델을 선택하세요. 봇은 기본적으로 GPT 3.5 모델을 사용합니다. 상위 모델인 GPT4에 액세스할 수 있는 경우 다음 소스 코드에서 "GPT35Turbo"를 "GPT4"로 변경하세요. GPT4는 더 나은 코드 검토 기능을 제공하지만 비용이 더 비쌉니다.
 
-```
+```rust
 static MODEL : ChatModel = ChatModel::GPT35Turbo;
 // static MODEL : ChatModel = ChatModel::GPT4;
 ```
 
 2. 엔지니어 ChatGPT 프롬프트. 예를 들어 ChatGPT가 숙련된 Java 개발자가 되어 Java 소스 코드 파일을 검토하도록 할 수 있습니다. 사용자 지정 프롬프트를 사용하여 봇이 코드의 특정 측면에 집중하도록 할 수 있습니다(예: 보안 문제 또는 성능에 집중). 제안된 변경 사항에 대한 코드 스니펫을 제공하거나 보안 문제에 대한 글머리 기호를 제공하는 등 특정 유형의 검토 의견을 제공하도록 봇에 메시지를 표시할 수도 있습니다. 다음 코드는 템플릿의 프롬프트입니다. 여기에서 힌트를 얻을 수 있는 많은 프롬프트 라이브러리가 있습니다.
 
-```
+{% code overflow="wrap" fullWidth="false" %}
+```rust
 let chat_id = format!("PR#{pull_number}");
     let system = &format!("You are an experienced software developer. You will act as a reviewer for a GitHub Pull Request titled \"{}\".", title);
     let mut reviews: Vec<String> = Vec::new();
@@ -115,12 +127,50 @@ let chat_id = format!("PR#{pull_number}");
         };
         let question = "The following is a GitHub patch. Please summarize the key changes and identify potential problems. Start with the most important findings.\n\n".to_string() + truncate(commit, CHAR_SOFT_LIMIT);
 ```
+{% endcode %}
+
+3. 봇을 더 친근감 있게 만드세요. 다음 소스 코드에서 "안녕하세요, 저는 flows.network의 코드 리뷰 봇입니다"로 시작하는 문장을 변경하여 봇의 풀 리퀘스트 댓글의 콘텐츠와 스타일을 변경할 수 있습니다. 예를 들어 커뮤니티 멤버에게 사용자 지정 인사말을 추가할 수 있습니다.
+
+```rust
+stlet mut resp = String::new();
+    resp.push_str("Hello, I am a [code review bot](https://github.com/flows-network/github-pr-summary/) on [flows.network](https://flows.network/). Here are my reviews of code commits in this PR.\n\n------\n\n");
+    if reviews.len() > 1 {
+        let co = ChatOptions {
+            model: MODEL,
+            restart: true,
+            system_prompt: Some(system),
+            retry_times: 3,
+        };
+```
+
+4. 리뷰 전략을 맞춤 설정하세요. 기본적으로 봇은 풀 리퀘스트의 모든 변경된 파일과 모든 커밋을 검토합니다. 특정 파일만 검토하거나 특정 개발자의 변경 사항만 검토하도록 소스 코드를 편집할 수 있습니다.
 
 
 
+## 다수의 저장소에서 봇 사용
+
+하나의 저장소에서 봇을 성공적으로 실행한 후에는 모든 저장소에 대해 코드 검토를 하고 싶을 것입니다! 물론 각 저장소에 대해 템플릿에서 별도의 봇을 배포할 수 있습니다. 그러나 이는 각 봇마다 관리해야 할 소스 코드가 따로 있다는 의미이며, 관리가 어려워질 수 있습니다. 동일한 봇 소스 코드를 사용하여 여러 봇을 만들 수 있습니다! flows.network에서는 각 봇을 " flow"라고 부릅니다.
+
+먼저 " Create a flow(플로우 만들기)"를 클릭하고 플로우에 대한 봇 소스 코드를 가져올 수 있습니다. 봇 소스 코드는 템플릿에서 복제된 GitHub 저장소에 있습니다. PR 검토를 위해 봇을 배포하려는 저장소와 혼동하지 마세요!
+
+다음으로 "고급" 섹션에서 봇이 PR을 검토할 대상 GitHub 저장소를 가리키도록 github\_owner 및 github\_repo 설정을 추가할 수 있습니다.
+
+아래 그림은 "템플릿에서 복제한 기존 봇 소스 코드 저장소에서 새 봇(플로우)을 만들기"의 단계를 보여줍니다.
+
+<figure><img src="https://www.cncf.io/wp-content/uploads/2023/06/image9.jpg" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="https://www.cncf.io/wp-content/uploads/2023/06/image4.jpg" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="https://www.cncf.io/wp-content/uploads/2023/06/image7.jpg" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="https://www.cncf.io/wp-content/uploads/2023/06/image5.jpg" alt=""><figcaption></figcaption></figure>
+
+마지막으로, 봇( flow)에 OpenAI API 키와 봇을 배포할 대상 GitHub 리포지토리에 대한 액세스 권한을 부여하는 프로세스를 거치게 됩니다.
 
 
 
+## 그 다음 단계는 어떻게 되나요?
 
+AI 지원 코드 리뷰는 빠르게 진화하는 분야입니다. CNCF의 [WasmEdge](https://github.com/WasmEdge/WasmEdge)는 코드 리뷰 봇 애플리케이션을 위한 효율적인 런타임을 제공합니다. 커뮤니티는 봇 템플릿을 개선하기 위해 여러 가지 새로운 아이디어를 실험하고 있습니다. 다음은 단기적으로 기대할 수 있는 몇 가지 개선 사항입니다!
 
-
+Claude, PaLM 등과 같이 코딩 작업에 대해 학습된 추가 LLM을 지원합니다. CVE 데이터베이스에서 학습된 Llama 모델과 같이 미세 조정된 모델을 지원합니다. 이슈 트래커 및 프로젝트 관리 도구와 같은 다른 R\&D 관리 도구와 통합. GitHub 이외의 코드 호스팅 서비스를 지원합니다. 지금 바로 오픈 소스 소프트웨어 리포지토리의 코드 품질과 개발자 생산성을 높이세요!
