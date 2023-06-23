@@ -76,4 +76,5 @@
     * [이스티오(Istio) 앰비언트(Ambient) 웨이포인트 프록시를 통한 사용 간편화(2023.04.26)](blog-and-news-ko/blog/project/istio-waypoint.md)
   * [Ambassador](blog-and-news-ko/blog/ambassador/README.md)
     * [오픈소스 프로젝트를 위한 ChatGPT 기반 코드 리뷰어 봇(Bot) (2023.06.06)](blog-and-news-ko/blog/ambassador/chatgpt-bot.md)
+    * [MLOps for beginners: getting started with MLOps](blog-and-news-ko/blog/ambassador/mlops-for-beginners-getting-started-with-mlops.md)
 * [News](blog-and-news-ko/news.md)
