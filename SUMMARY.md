@@ -13,7 +13,7 @@
     * [LF Certification Verify tool](cloud-native/kubernetes-k8s/certification/lf-certification-verify-tool.md)
     * [Renew policy (Aug 2, 2021)](cloud-native/kubernetes-k8s/certification/renew-policy-aug-2-2021.md)
   * [Versions](cloud-native/kubernetes-k8s/version/README.md)
-    * [Native-k8s(Ubuntu) - Nov 28 2022](cloud-native/kubernetes-k8s/version/native-k8s-ubuntu.md)
+    * [Native-k8s(Ubuntu) - Dec 12 2023](cloud-native/kubernetes-k8s/version/native-k8s-ubuntu.md)
     * [Native-k8s(CentOS) - Dec 12 2023](cloud-native/kubernetes-k8s/version/native-k8s-centos.md)
     * [Kubernetes version graph view](cloud-native/kubernetes-k8s/version/kubernetes-version-graph-view.md)
     * [GKE (Google Kuberntes Engine) - Jun 14 2021](cloud-native/kubernetes-k8s/version/gke-google-kuberntes-engine.md)

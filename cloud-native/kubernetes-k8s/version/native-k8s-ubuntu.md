@@ -1,4 +1,4 @@
-# Native-k8s(Ubuntu) - Nov 28 2022
+# Native-k8s(Ubuntu) - Dec 12 2023
 
 ## Version List&#x20;
 
@@ -7,6 +7,12 @@ Grab version list thru my own cluster. (+ a little version change)
 {% embed url="https://github.com/sysnet4admin/IaC/tree/master/k8s/U/k8s-multicontext" %}
 
 ### 0.TL; DR: **`1.25.4`** Now Ready to Support&#x20;
+
+```
+root@cp-k8s:~# apt update
+Get:1 https://download.docker.com/linux/ubuntu jammy InRelease [48.8 kB]
+<snipped>
+```
 
 ### 1. kubelet
 
