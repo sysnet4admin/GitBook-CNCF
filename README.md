@@ -2,7 +2,31 @@
 
 ### CNCF Ambassador | Cloud Native Engineer
 
-![](https://images.credly.com/size/680x680/images/faa0c895-889a-4ef0-a2fb-516e0abe9c97/image.png) ![](https://images.credly.com/size/680x680/images/8b8ed108-e77d-4396-ac59-2504583b9d54/cka\_from\_cncfsite\_\_281\_29.png) ![](https://images.credly.com/size/680x680/images/f88d800c-5261-45c6-9515-0458e31c3e16/ckad\_from\_cncfsite.png) ![](https://images.credly.com/size/680x680/images/9945dfcb-1cca-4529-85e6-db1be3782210/kubernetes-security-specialist-logo2.png) ![](https://images.credly.com/size/680x680/images/f352403a-abe2-45a4-ab5d-33ff92d35ffb/cisco\_ccie\_datacenter.png)
+<div align="left" data-full-width="false">
+
+<img src="https://images.credly.com/size/680x680/images/5302cfb2-cecd-410f-8a23-7a29a9f11ccb/image.png" alt="">
+
+ 
+
+<img src="https://images.credly.com/size/680x680/images/8b8ed108-e77d-4396-ac59-2504583b9d54/cka_from_cncfsite__281_29.png" alt="">
+
+ 
+
+<img src="https://images.credly.com/size/680x680/images/f88d800c-5261-45c6-9515-0458e31c3e16/ckad_from_cncfsite.png" alt="">
+
+ 
+
+<img src="https://images.credly.com/size/680x680/images/9945dfcb-1cca-4529-85e6-db1be3782210/kubernetes-security-specialist-logo2.png" alt="">
+
+ 
+
+<figure><img src="https://www.cncf.io/wp-content/uploads/2024/03/kubestronaut-stacked-color.png" alt="" width="563"><figcaption></figcaption></figure>
+
+ 
+
+<figure><img src="https://images.credly.com/size/680x680/images/f352403a-abe2-45a4-ab5d-33ff92d35ffb/cisco_ccie_datacenter.png" alt="" width="563"><figcaption></figcaption></figure>
+
+</div>
 
 **Channels:**
 
