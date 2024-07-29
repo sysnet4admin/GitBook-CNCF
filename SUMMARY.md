@@ -5,7 +5,7 @@
 ## Cloud Native&#x20;
 
 * [All](cloud-native/all/README.md)
-  * [CNCF Graduated Projects(Updated: Aug 22, 2023)](cloud-native/all/cncf-graduated-projects-updated-aug-22-2023.md)
+  * [CNCF Graduated Projects(Updated: Mar 01, 2024)](cloud-native/all/cncf-graduated-projects-updated-mar-01-2024.md)
 * [Kubernetes (\*k8s)](cloud-native/kubernetes-k8s/README.md)
   * [Certifications](cloud-native/kubernetes-k8s/certification/README.md)
     * [CKA, CKAD, CKS - Jan 03 2022](cloud-native/kubernetes-k8s/certification/cka-ckad-cks.md)
